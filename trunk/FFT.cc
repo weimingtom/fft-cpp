@@ -1,5 +1,6 @@
 #include "FFT.h"
 #include <vector>
+#include <cassert>
 
 #define PI 3.14159265
 
@@ -10,7 +11,10 @@ FFT::FFT(int n, bool inverse)
 {
     lgN = 0;
     for (int i = n; i > 1; i >>= 1)
+    {
         ++lgN;
+        assert((i & 1) == 0);
+    }
     omega.resize(lgN);
     int m = 1;
     for (int s = 0; s < lgN; ++s)
