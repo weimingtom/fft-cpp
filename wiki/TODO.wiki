@@ -1,5 +1,4 @@
 #labels Featured
-===TO-DO:===
   * sample: getting frequency of a sound;
   * sample: adding / removing given frequency component from a sound;
   * sample: manipulating images;
