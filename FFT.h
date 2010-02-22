@@ -13,6 +13,7 @@ class FFT
         FFT(int n, bool inverse = false);
         /* Computes Discrete Fourier Transform of given buffer. */
         std::vector<Complex> transform(const std::vector<Complex>& buf);
+        int getFrequency(int k);
         static double getIntensity(Complex c);
         static double getPhase(Complex c);
         
