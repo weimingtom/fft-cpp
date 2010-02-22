@@ -1,4 +1,7 @@
 #labels Featured
+*Version 0.4*, 22 February 2010<br/>
++ sample: manipulating sound component frequencies' amplitudes;<br/>
+
 *Version 0.3*, 22 February 2010<br/>
 + sample: detecting sound frequency;<br/>
 + sample helper: generating PCM sound of given frequencies;<br/>
