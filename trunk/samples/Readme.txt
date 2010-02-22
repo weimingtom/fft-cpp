@@ -6,5 +6,5 @@ Samples:
 => sound_manipulation: manipulating amplitudes of frequencies in a sound;
 
 Helper programs:
-=> sound_generator: generating PCM sound of given frequencies;
+=> sound_generator: generating PCM sound consisting of sines of given frequencies and phases;
 => wave_header_generator: generating .wav file header for PCM sound;
