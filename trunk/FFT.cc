@@ -53,11 +53,6 @@ std::vector<FFT::Complex> FFT::transform(const vector<Complex>& buf)
     return result;
 }
 
-int FFT::getFrequency(int k)
-{
-    return k * n;
-}
-
 double FFT::getIntensity(Complex c)
 {
     return abs(c);
