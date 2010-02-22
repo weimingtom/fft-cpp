@@ -11,6 +11,7 @@ const int samples_per_second = 8192;
 
 int main()
 {
+    // read original file
     FILE* f = fopen("../pcm.pcm", "rb");
     fseek(f, 0, SEEK_END);
     int n = ftell(f) / 2;
@@ -18,16 +19,22 @@ int main()
     short* buf = new short[n];
     fread(buf, n, 2, f);
     fclose(f);
-    
+    // compute DFT
     vector<FFT::Complex> buf_complex(n);
     for (int i = 0; i < n; ++i)
         buf_complex[i] = buf[i];
-    delete[] buf;
     FFT dft(n);
     vector<FFT::Complex> frequencies = dft.transform(buf_complex);
-    
-    for (int k = 0; k < (n >> 1); ++k)
-        if (dft.getIntensity(frequencies[k]) > 100)
-            cout << (k * samples_per_second / n) << " => "
-                    << dft.getIntensity(frequencies[k]) << endl;
+    // remove frequency (1500 Hz)
+    frequencies[1500 * n / samples_per_second] = 0;
+    frequencies[(n - 1500) * n / samples_per_second] = 0;
+    // compute IDFT
+    FFT idft(n, true);
+    buf_complex = idft.transform(frequencies);
+    // save modified file
+    for (int i = 0; i < n; ++i)
+        buf[i] = (short)buf_complex[i].real();
+    f = fopen("../pcm.pcm", "wb");
+    fwrite(buf, n, 2, f);
+    fclose(f);
 }
