@@ -1,4 +1,9 @@
 #labels Featured
+*Version 0.3*, 22 February 2010<br/>
++ sample: detecting sound frequency;<br/>
++ sample helper: generating PCM sound of given frequencies;<br/>
++ sample helper: generating .wav file header for PCM sound;<br/>
+
 *Version 0.2*, 20 February 2010<br/>
 + sample: applying DFT and IDFT to basic functions, obtaining intensity and phase;<br/>
 + sample: fast polynomial multiplication;<br/>
